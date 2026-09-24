@@ -16,26 +16,44 @@ def rerank_rrf(
     k: int = 60,
 ) -> list[dict]:
     """Fuse nhiều ranked lists và trả hybrid SearchResult."""
-    # TODO: Implement RRF.
-    #
-    # scores = {}
-    # items = {}
-    # for ranked_list in ranked_lists:
-    #     for rank, item in enumerate(ranked_list, 1):
-    #         item_id = item["id"]
-    #         scores[item_id] = scores.get(item_id, 0.0) + 1 / (k + rank)
-    #         items[item_id] = item
-    #
-    # ranked_ids = sorted(scores, key=scores.get, reverse=True)
-    # results = []
-    # for item_id in ranked_ids[:top_k]:
-    #     result = items[item_id].copy()
-    #     result["score"] = scores[item_id]
-    #     result["retrieval_method"] = "hybrid"
-    #     results.append(result)
-    # return results
-    raise NotImplementedError("Implement rerank_rrf")
+    scores: dict[str, float] = {}
+    items: dict[str, dict] = {}
+
+    for ranked_list in ranked_lists:
+        # Rank bắt đầu từ 1 theo công thức RRF: 1 / (k + rank)
+        for rank, item in enumerate(ranked_list, start=1):
+            item_id = item["id"]
+            scores[item_id] = scores.get(item_id, 0.0) + (1.0 / (k + rank))
+            
+            # Lưu trữ thông tin item (giữ lại bản ghi nếu chưa có)
+            if item_id not in items:
+                items[item_id] = item
+
+    # Sắp xếp danh sách item_id theo điểm RRF giảm dần
+    ranked_ids = sorted(scores.keys(), key=lambda x: scores[x], reverse=True)
+
+    results = []
+    for item_id in ranked_ids[:top_k]:
+        # Dùng .copy() để tránh sửa trực tiếp dict gốc
+        result = items[item_id].copy()
+        result["score"] = scores[item_id]
+        result["retrieval_method"] = "hybrid"
+        results.append(result)
+
+    return results
 
 
 if __name__ == "__main__":
-    print("Implement rerank_rrf, then run contract tests.")
+    # Test mẫu để kiểm tra hoạt động
+    list_dense = [
+        {"id": "doc1", "content": "A", "score": 0.9, "metadata": {}},
+        {"id": "doc2", "content": "B", "score": 0.8, "metadata": {}},
+    ]
+    list_bm25 = [
+        {"id": "doc2", "content": "B", "score": 5.2, "metadata": {}},
+        {"id": "doc3", "content": "C", "score": 4.1, "metadata": {}},
+    ]
+    
+    hybrid_results = rerank_rrf([list_dense, list_bm25], top_k=2)
+    for res in hybrid_results:
+        print(res)
