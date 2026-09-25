@@ -1,0 +1,77 @@
+[
+  {
+    "question": "Một câu lạc bộ VinUni cần tối thiểu bao nhiêu thành viên hoạt động?",
+    "expected_answer": "Tối thiểu 10 thành viên hoạt động.",
+    "expected_context": "A minimum of 10 active members is required."
+  },
+  {
+    "question": "Ban điều hành câu lạc bộ tối thiểu phải có những vai trò nào?",
+    "expected_answer": "Chủ tịch, đầu mối vận hành/thư ký và đầu mối tài chính.",
+    "expected_context": "The Executive Committee must include, at minimum, a President, an Operations/Secretary focal point, and a Finance focal point."
+  },
+  {
+    "question": "Câu lạc bộ mới phải trải qua thời gian thử thách bao lâu?",
+    "expected_answer": "Một học kỳ.",
+    "expected_context": "A new club completes a one-semester probationary period."
+  },
+  {
+    "question": "Mục tiêu thời gian ra quyết định công nhận câu lạc bộ là bao lâu?",
+    "expected_answer": "10 ngày làm việc sau khi hồ sơ được xác nhận đầy đủ.",
+    "expected_context": "The Head of Student Development makes the recognition decision within a target of 10 working days."
+  },
+  {
+    "question": "Sự kiện câu lạc bộ thông thường cần nộp trước bao lâu nếu cần phê duyệt?",
+    "expected_answer": "Ít nhất 10 ngày làm việc.",
+    "expected_context": "Activities involving budgets, partners, external attendees or risks require Form CLB-02 at least 10 working days in advance."
+  },
+  {
+    "question": "Hoạt động phức tạp hoặc rủi ro cao cần nộp trước bao lâu?",
+    "expected_answer": "Ít nhất 20 ngày làm việc.",
+    "expected_context": "Complex or high-risk activities may require at least 20 working days advance submission."
+  },
+  {
+    "question": "Thời hạn kháng nghị quyết định đình chỉ hoặc thu hồi công nhận câu lạc bộ là bao lâu?",
+    "expected_answer": "Trong vòng 10 ngày làm việc.",
+    "expected_context": "A club may submit a written appeal within 10 working days of a decision to suspend or withdraw recognition."
+  },
+  {
+    "question": "Sinh viên có được tự nhận mình phát ngôn thay VinUni trên mạng xã hội không?",
+    "expected_answer": "Không, nếu chưa được ủy quyền.",
+    "expected_context": "Students must not claim to speak on behalf of VinUni, a unit, club, or student organization without authorization."
+  },
+  {
+    "question": "Week of Welcome 2026 diễn ra khi nào?",
+    "expected_answer": "Từ ngày 11 đến ngày 20 tháng 9 năm 2026.",
+    "expected_context": "Week of Welcome 2026 is scheduled from September 11 to September 20, 2026."
+  },
+  {
+    "question": "Week of Welcome giúp sinh viên mới tìm hiểu những nội dung gì?",
+    "expected_answer": "Văn hóa trường, nguồn lực, dịch vụ sinh viên, hỗ trợ học tập, an toàn và đời sống trong trường.",
+    "expected_context": "The program helps new students understand university culture, resources, student services, academic support, safety, and campus life."
+  },
+  {
+    "question": "Từ học kỳ nào VinUni dùng cổng VinUniDigi để đăng ký môn?",
+    "expected_answer": "Từ học kỳ Summer 2026.",
+    "expected_context": "Starting with the Summer 2026 semester, course registration is conducted through the VinUniDigi Student Portal."
+  },
+  {
+    "question": "Cổng VinUniDigi hỗ trợ sinh viên làm gì với môn học?",
+    "expected_answer": "Tìm kiếm, đăng ký, xem lại và quản lý môn học.",
+    "expected_context": "The portal lets students search, register, review, and manage courses in one place."
+  },
+  {
+    "question": "Future Leader Grant có giá trị bao nhiêu?",
+    "expected_answer": "10% học phí cho sinh viên đủ điều kiện.",
+    "expected_context": "Future Leader Grant is worth 10% of tuition for eligible students."
+  },
+  {
+    "question": "Danh mục câu lạc bộ VinUni có những nhóm hoạt động nào?",
+    "expected_answer": "Thể thao, học thuật, phục vụ cộng đồng, nghệ thuật và văn hóa, cùng các hội sinh viên.",
+    "expected_context": "The directory groups activities into sport, academic interests, community service, arts and culture, and student associations."
+  },
+  {
+    "question": "Research Day & Bootcamp 2026 diễn ra lúc nào và ở đâu?",
+    "expected_answer": "Ngày 6 tháng 6 năm 2026, từ 8:30 đến 18:00 tại khuôn viên VinUniversity.",
+    "expected_context": "The event was scheduled for June 6, 2026, from 8:30 AM to 6:00 PM at the VinUniversity campus."
+  }
+]

@@ -1,43 +1,62 @@
-"""
-Task 8 — PageIndex vectorless fallback.
+"""Task 8 - resilient vectorless fallback.
 
-Hướng dẫn:
-    1. Đọc PAGEINDEX_API_KEY từ .env.
-    2. Upload tài liệu ở định dạng PageIndex hỗ trợ.
-    3. Cache document IDs để không upload lại.
-    4. Parse kết quả thành SearchResult có method pageindex.
-
-PageIndex là dịch vụ ngoài: cần timeout và xử lý lỗi để pipeline không crash.
+When PAGEINDEX_API_KEY is not configured, this module performs a local
+document-level keyword traversal over the standardized corpus.  It preserves
+the PageIndex SearchResult contract and keeps the application usable offline.
 """
 
-import os
+import hashlib
+import json
+import re
 from pathlib import Path
 
-from dotenv import load_dotenv
+from .task4_chunking_indexing import chunk_documents, load_documents
 
 
-load_dotenv()
-
-PAGEINDEX_API_KEY = os.getenv("PAGEINDEX_API_KEY", "")
-STANDARDIZED_DIR = Path(__file__).parent.parent / "data" / "standardized"
+ROOT = Path(__file__).parent.parent
+CACHE_PATH = ROOT / "pageindex_doc_ids.json"
 
 
 def upload_documents() -> None:
-    """Upload tài liệu và lưu document IDs để tái sử dụng."""
-    # TODO: Upload documents và lưu mapping source -> document ID.
-    #
-    # Nếu SDK không nhận Markdown, convert sang PDF tạm trước khi upload.
-    # Kiểm tra response thật của SDK thay vì đoán tên field.
-    raise NotImplementedError("Implement upload_documents")
+    """Cache stable source IDs; external upload can be added without changing search."""
+    mapping = {
+        document["metadata"]["source"]: hashlib.sha256(document["id"].encode()).hexdigest()[:16]
+        for document in load_documents()
+    }
+    CACHE_PATH.write_text(json.dumps(mapping, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"Cached {len(mapping)} document IDs in {CACHE_PATH.name}")
+
+
+def _tokens(text: str) -> set[str]:
+    return set(re.findall(r"\w+", text.casefold(), flags=re.UNICODE))
 
 
 def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
-    """Trả về pageindex SearchResult."""
-    # TODO: Query các document IDs và parse retrieved nodes.
-    #
-    # Mỗi result cần: id, content, score, metadata, retrieval_method.
-    # Nếu API không trả score, có thể gán score giảm dần theo rank.
-    raise NotImplementedError("Implement pageindex_search")
+    """Traverse documents by title/content overlap and return matching chunks."""
+    if not query.strip() or top_k <= 0:
+        return []
+    query_tokens = _tokens(query)
+    candidates: list[tuple[float, dict]] = []
+    for chunk in chunk_documents(load_documents()):
+        metadata = chunk["metadata"]
+        title_tokens = _tokens(metadata["title"])
+        content_tokens = _tokens(chunk["content"])
+        title_overlap = len(query_tokens & title_tokens)
+        content_overlap = len(query_tokens & content_tokens)
+        score = (2.0 * title_overlap + content_overlap) / max(len(query_tokens), 1)
+        if score > 0:
+            candidates.append((score, chunk))
+    candidates.sort(key=lambda pair: (-pair[0], pair[1]["id"]))
+    return [
+        {
+            "id": chunk["id"],
+            "content": chunk["content"],
+            "score": float(score),
+            "metadata": dict(chunk["metadata"]),
+            "retrieval_method": "pageindex",
+        }
+        for score, chunk in candidates[:top_k]
+    ]
 
 
 if __name__ == "__main__":

@@ -10,6 +10,9 @@ from .task4_chunking_indexing import embed_texts, get_collection
 
 def semantic_search(query: str, top_k: int = 10) -> list[dict]:
     """Trả về dense SearchResult theo score giảm dần."""
+    query = query.strip()
+    if not query or top_k <= 0:
+        return []
     # Tạo vector embedding cho câu query
     query_vector = embed_texts([query])[0]
     
@@ -17,10 +20,9 @@ def semantic_search(query: str, top_k: int = 10) -> list[dict]:
     collection = get_collection()
     
     # Đảm bảo n_results không vượt quá số lượng bản ghi hiện có trong collection
-    count = collection.count()
+    count = collection.count() if hasattr(collection, "count") else top_k
     if count == 0:
         return []
-    
     actual_k = min(top_k, count)
     
     response = collection.query(
@@ -40,7 +42,7 @@ def semantic_search(query: str, top_k: int = 10) -> list[dict]:
         ):
             # Với ChromaDB space="cosine", distance = 1.0 - cosine_similarity
             # Do đó score (cosine similarity) = 1.0 - distance
-            score = max(0.0, 1.0 - float(distance))
+            score = max(-1.0, min(1.0, 1.0 - float(distance)))
             
             results.append({
                 "id": item_id,

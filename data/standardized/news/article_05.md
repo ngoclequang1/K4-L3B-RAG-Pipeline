@@ -1,9 +1,12 @@
 # Advancing Interdisciplinary Solutions at the VinUni Research Day & Bootcamp 2026
 
 **Source:** https://vinuni.edu.vn/advancing-interdisciplinary-solutions-at-the-vinuni-research-day-bootcamp-2026/
+
 **Crawled:** 2026-09-25T09:35:00+07:00
 
 ---
+
+# VinUni Research Day & Bootcamp 2026
 
 Published June 5, 2026, this news article introduces VinUniversity's Research Day & Bootcamp 2026, a university-wide research showcase focused on interdisciplinary collaboration and student-led inquiry. The event was scheduled for June 6, 2026, from 8:30 AM to 6:00 PM at the VinUniversity campus.
 

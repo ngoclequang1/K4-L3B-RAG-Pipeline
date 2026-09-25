@@ -1,9 +1,12 @@
 # [ANNOUNCEMENT] Launch of the New Student Portal for Summer 2026 Course Registration
 
 **Source:** https://registrar.vinuni.edu.vn/2026/06/29/announcement-launch-of-the-new-student-portal-for-summer-2026-course-registration/
+
 **Crawled:** 2026-09-25T09:35:00+07:00
 
 ---
+
+# New Student Portal for Summer 2026 Course Registration
 
 Published June 29, 2026 by the Office of the University Registrar. Starting with the Summer 2026 semester, VinUni course registration is conducted through the new VinUniDigi Student Portal. The portal is designed to let students search, register, review, and manage courses in one place.
 

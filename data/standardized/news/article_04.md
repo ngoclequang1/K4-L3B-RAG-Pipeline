@@ -1,6 +1,7 @@
 # Current Students - Scholarship and Financial Aid
 
 **Source:** https://admissions.vinuni.edu.vn/scholarship-and-financial-aid/current-students/
+
 **Crawled:** 2026-09-25T09:35:00+07:00
 
 ---
