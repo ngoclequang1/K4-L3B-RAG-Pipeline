@@ -1,0 +1,694 @@
+{
+  "run": {
+    "date": "2026-09-25",
+    "generator": "gpt-4o-mini",
+    "embedding": "text-embedding-3-small",
+    "top_k": 5,
+    "documents": 8,
+    "chunks": 53,
+    "cases": 15,
+    "metric_method": "OpenAI embedding similarity for faithfulness/relevance; evidence-token coverage for context recall/precision"
+  },
+  "summary": {
+    "dense": {
+      "faithfulness": 0.7431506088014104,
+      "answer_relevance": 0.7887212765093824,
+      "context_recall": 0.906837606837607,
+      "context_precision": 0.5866666666666667,
+      "average": 0.7563440397037666,
+      "average_retrieval_latency_seconds": 0.7794367666724914,
+      "average_generation_latency_seconds": 2.9710178266628646
+    },
+    "hybrid": {
+      "faithfulness": 0.7367585051894489,
+      "answer_relevance": 0.791699388467323,
+      "context_recall": 0.9017094017094017,
+      "context_precision": 0.5600000000000002,
+      "average": 0.7475418238415434,
+      "average_retrieval_latency_seconds": 0.7829251600060767,
+      "average_generation_latency_seconds": 2.8951730466680603
+    }
+  },
+  "results": [
+    {
+      "case_index": 0,
+      "configuration": "dense",
+      "question": "Một câu lạc bộ VinUni cần tối thiểu bao nhiêu thành viên hoạt động?",
+      "expected_answer": "Tối thiểu 10 thành viên hoạt động.",
+      "answer": "Không thể xác minh.",
+      "source_ids": [
+        "news/article_03.md::chunk-2",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-0",
+        "news/article_03.md::chunk-0",
+        "news/article_03.md::chunk-4",
+        "news/article_03.md::chunk-3"
+      ],
+      "retrieval_latency_seconds": 0.669582900009118,
+      "generation_latency_seconds": 3.479446099983761,
+      "metrics": {
+        "faithfulness": 0.5266054897702923,
+        "answer_relevance": 0.6578083211328316,
+        "context_recall": 0.0,
+        "context_precision": 0.0
+      }
+    },
+    {
+      "case_index": 0,
+      "configuration": "hybrid",
+      "question": "Một câu lạc bộ VinUni cần tối thiểu bao nhiêu thành viên hoạt động?",
+      "expected_answer": "Tối thiểu 10 thành viên hoạt động.",
+      "answer": "Không thể xác minh.",
+      "source_ids": [
+        "news/article_03.md::chunk-2",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-0",
+        "news/article_03.md::chunk-4",
+        "news/article_05.md::chunk-0",
+        "news/article_03.md::chunk-3"
+      ],
+      "retrieval_latency_seconds": 0.6816126000194345,
+      "generation_latency_seconds": 1.7879351000010502,
+      "metrics": {
+        "faithfulness": 0.5292263730226873,
+        "answer_relevance": 0.6578083211328316,
+        "context_recall": 0.0,
+        "context_precision": 0.0
+      }
+    },
+    {
+      "case_index": 1,
+      "configuration": "dense",
+      "question": "Ban điều hành câu lạc bộ tối thiểu phải có những vai trò nào?",
+      "expected_answer": "Chủ tịch, đầu mối vận hành/thư ký và đầu mối tài chính.",
+      "answer": "Ban điều hành câu lạc bộ tối thiểu phải có các vai trò: một Chủ tịch, một điểm liên lạc về Hoạt động/Bí thư, và một điểm liên lạc về Tài chính [Document 3].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-0",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-0",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-6",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "news/article_02.md::chunk-4"
+      ],
+      "retrieval_latency_seconds": 0.46021550000295974,
+      "generation_latency_seconds": 1.7272896000067703,
+      "metrics": {
+        "faithfulness": 0.6915749539201922,
+        "answer_relevance": 0.7918954281708271,
+        "context_recall": 1.0,
+        "context_precision": 0.2
+      }
+    },
+    {
+      "case_index": 1,
+      "configuration": "hybrid",
+      "question": "Ban điều hành câu lạc bộ tối thiểu phải có những vai trò nào?",
+      "expected_answer": "Chủ tịch, đầu mối vận hành/thư ký và đầu mối tài chính.",
+      "answer": "Ban điều hành câu lạc bộ tối thiểu phải có các vai trò sau: một Chủ tịch, một điểm liên lạc về Hoạt động/Bí thư, và một điểm liên lạc về Tài chính [Document 3].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-0",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-0",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-6",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "news/article_02.md::chunk-4"
+      ],
+      "retrieval_latency_seconds": 0.4637992999923881,
+      "generation_latency_seconds": 1.8490632000030018,
+      "metrics": {
+        "faithfulness": 0.6897134361483479,
+        "answer_relevance": 0.7945761343928619,
+        "context_recall": 1.0,
+        "context_precision": 0.2
+      }
+    },
+    {
+      "case_index": 2,
+      "configuration": "dense",
+      "question": "Câu lạc bộ mới phải trải qua thời gian thử thách bao lâu?",
+      "expected_answer": "Một học kỳ.",
+      "answer": "Câu lạc bộ mới phải trải qua thời gian thử thách là một học kỳ [Document 5].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-9",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-7",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-6"
+      ],
+      "retrieval_latency_seconds": 1.5122476000105962,
+      "generation_latency_seconds": 4.608890400006203,
+      "metrics": {
+        "faithfulness": 0.6399067947926693,
+        "answer_relevance": 0.710367849081978,
+        "context_recall": 1.0,
+        "context_precision": 0.2
+      }
+    },
+    {
+      "case_index": 2,
+      "configuration": "hybrid",
+      "question": "Câu lạc bộ mới phải trải qua thời gian thử thách bao lâu?",
+      "expected_answer": "Một học kỳ.",
+      "answer": "Câu lạc bộ mới phải trải qua thời gian thử thách là một học kỳ. [Document 5]",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-9",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-7",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-6"
+      ],
+      "retrieval_latency_seconds": 1.5149389000143856,
+      "generation_latency_seconds": 2.1682893999968655,
+      "metrics": {
+        "faithfulness": 0.6383947234218924,
+        "answer_relevance": 0.7161512881909323,
+        "context_recall": 1.0,
+        "context_precision": 0.2
+      }
+    },
+    {
+      "case_index": 3,
+      "configuration": "dense",
+      "question": "Mục tiêu thời gian ra quyết định công nhận câu lạc bộ là bao lâu?",
+      "expected_answer": "10 ngày làm việc sau khi hồ sơ được xác nhận đầy đủ.",
+      "answer": "Mục tiêu thời gian ra quyết định công nhận câu lạc bộ là 10 ngày làm việc sau khi SAM xác nhận đơn đăng ký hoàn chỉnh [Document 2].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-6",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-7",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-9",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7"
+      ],
+      "retrieval_latency_seconds": 1.3396261000016239,
+      "generation_latency_seconds": 2.879889500007266,
+      "metrics": {
+        "faithfulness": 0.6993713914679732,
+        "answer_relevance": 0.8449974590478373,
+        "context_recall": 1.0,
+        "context_precision": 1.0
+      }
+    },
+    {
+      "case_index": 3,
+      "configuration": "hybrid",
+      "question": "Mục tiêu thời gian ra quyết định công nhận câu lạc bộ là bao lâu?",
+      "expected_answer": "10 ngày làm việc sau khi hồ sơ được xác nhận đầy đủ.",
+      "answer": "Mục tiêu thời gian ra quyết định công nhận câu lạc bộ là 10 ngày làm việc sau khi SAM xác nhận đơn đăng ký hoàn chỉnh [Document 2].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-6",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-7",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-9",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7"
+      ],
+      "retrieval_latency_seconds": 1.3423370999807958,
+      "generation_latency_seconds": 1.3333710000151768,
+      "metrics": {
+        "faithfulness": 0.6993713914679732,
+        "answer_relevance": 0.8449974590478373,
+        "context_recall": 1.0,
+        "context_precision": 1.0
+      }
+    },
+    {
+      "case_index": 4,
+      "configuration": "dense",
+      "question": "Sự kiện câu lạc bộ thông thường cần nộp trước bao lâu nếu cần phê duyệt?",
+      "expected_answer": "Ít nhất 10 ngày làm việc.",
+      "answer": "Sự kiện câu lạc bộ thông thường cần nộp trước ít nhất 10 ngày làm việc nếu có liên quan đến ngân sách, đối tác/tài trợ, người tham gia bên ngoài, truyền thông công cộng, hoạt động ngoài khuôn viên hoặc qua đêm, giấy phép, dữ liệu nhạy cảm, hoặc rủi ro an toàn [Document 2].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-7",
+        "news/article_02.md::chunk-4",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-2",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7"
+      ],
+      "retrieval_latency_seconds": 1.1987815000175033,
+      "generation_latency_seconds": 1.7671753999893554,
+      "metrics": {
+        "faithfulness": 0.790603163274324,
+        "answer_relevance": 0.7710137814373481,
+        "context_recall": 1.0,
+        "context_precision": 0.6
+      }
+    },
+    {
+      "case_index": 4,
+      "configuration": "hybrid",
+      "question": "Sự kiện câu lạc bộ thông thường cần nộp trước bao lâu nếu cần phê duyệt?",
+      "expected_answer": "Ít nhất 10 ngày làm việc.",
+      "answer": "Sự kiện câu lạc bộ thông thường cần nộp trước ít nhất 10 ngày làm việc nếu cần phê duyệt [Document 2].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-7",
+        "news/article_02.md::chunk-4",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-2",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7"
+      ],
+      "retrieval_latency_seconds": 1.2017980000237003,
+      "generation_latency_seconds": 4.584080200002063,
+      "metrics": {
+        "faithfulness": 0.7451376369330901,
+        "answer_relevance": 0.7940248104172095,
+        "context_recall": 1.0,
+        "context_precision": 0.6
+      }
+    },
+    {
+      "case_index": 5,
+      "configuration": "dense",
+      "question": "Hoạt động phức tạp hoặc rủi ro cao cần nộp trước bao lâu?",
+      "expected_answer": "Ít nhất 20 ngày làm việc.",
+      "answer": "Hoạt động phức tạp hoặc rủi ro cao cần nộp trước ít nhất 20 ngày làm việc [Document 1].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-9",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-7",
+        "news/article_02.md::chunk-4",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7"
+      ],
+      "retrieval_latency_seconds": 0.6164223999949172,
+      "generation_latency_seconds": 1.9452446999785025,
+      "metrics": {
+        "faithfulness": 0.6863794416270332,
+        "answer_relevance": 0.8321594664800755,
+        "context_recall": 1.0,
+        "context_precision": 0.6
+      }
+    },
+    {
+      "case_index": 5,
+      "configuration": "hybrid",
+      "question": "Hoạt động phức tạp hoặc rủi ro cao cần nộp trước bao lâu?",
+      "expected_answer": "Ít nhất 20 ngày làm việc.",
+      "answer": "Hoạt động phức tạp hoặc rủi ro cao cần nộp trước ít nhất 20 ngày làm việc [Document 1].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-9",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-7",
+        "news/article_02.md::chunk-4",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7"
+      ],
+      "retrieval_latency_seconds": 0.6191448999743443,
+      "generation_latency_seconds": 1.6022377999906894,
+      "metrics": {
+        "faithfulness": 0.6863415304568485,
+        "answer_relevance": 0.8321594664800755,
+        "context_recall": 1.0,
+        "context_precision": 0.6
+      }
+    },
+    {
+      "case_index": 6,
+      "configuration": "dense",
+      "question": "Thời hạn kháng nghị quyết định đình chỉ hoặc thu hồi công nhận câu lạc bộ là bao lâu?",
+      "expected_answer": "Trong vòng 10 ngày làm việc.",
+      "answer": "Thời hạn kháng nghị quyết định đình chỉ hoặc thu hồi công nhận câu lạc bộ là 10 ngày làm việc kể từ ngày nhận được quyết định đó [Document 5].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-0",
+        "news/article_02.md::chunk-4",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-9"
+      ],
+      "retrieval_latency_seconds": 0.7589043000189122,
+      "generation_latency_seconds": 3.8548710999893956,
+      "metrics": {
+        "faithfulness": 0.6856435541514453,
+        "answer_relevance": 0.7844370644018197,
+        "context_recall": 1.0,
+        "context_precision": 0.6
+      }
+    },
+    {
+      "case_index": 6,
+      "configuration": "hybrid",
+      "question": "Thời hạn kháng nghị quyết định đình chỉ hoặc thu hồi công nhận câu lạc bộ là bao lâu?",
+      "expected_answer": "Trong vòng 10 ngày làm việc.",
+      "answer": "Thời hạn kháng nghị quyết định đình chỉ hoặc thu hồi công nhận câu lạc bộ là 10 ngày làm việc kể từ ngày nhận quyết định [Document 5].",
+      "source_ids": [
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-8",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-7",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-0",
+        "news/article_02.md::chunk-4",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-9"
+      ],
+      "retrieval_latency_seconds": 0.7618506000144407,
+      "generation_latency_seconds": 3.2271363000036217,
+      "metrics": {
+        "faithfulness": 0.6844324598565622,
+        "answer_relevance": 0.7838205575955203,
+        "context_recall": 1.0,
+        "context_precision": 0.6
+      }
+    },
+    {
+      "case_index": 7,
+      "configuration": "dense",
+      "question": "Sinh viên có được tự nhận mình phát ngôn thay VinUni trên mạng xã hội không?",
+      "expected_answer": "Không, nếu chưa được ủy quyền.",
+      "answer": "Sinh viên không được tự nhận mình phát ngôn thay VinUni, một đơn vị, câu lạc bộ, hoặc tổ chức sinh viên mà không có sự ủy quyền. Khi phát biểu ý kiến cá nhân, sinh viên nên xác định rõ đó là quan điểm cá nhân của mình [Document 1].",
+      "source_ids": [
+        "legal/vinuni_student_social_media_guidelines_2026.md::chunk-6",
+        "news/article_03.md::chunk-4",
+        "news/article_02.md::chunk-1",
+        "legal/vinuni_student_social_media_guidelines_2026.md::chunk-0",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-4"
+      ],
+      "retrieval_latency_seconds": 0.5559231999795884,
+      "generation_latency_seconds": 2.7948292000219226,
+      "metrics": {
+        "faithfulness": 0.7489392732061941,
+        "answer_relevance": 0.7234349995989641,
+        "context_recall": 1.0,
+        "context_precision": 1.0
+      }
+    },
+    {
+      "case_index": 7,
+      "configuration": "hybrid",
+      "question": "Sinh viên có được tự nhận mình phát ngôn thay VinUni trên mạng xã hội không?",
+      "expected_answer": "Không, nếu chưa được ủy quyền.",
+      "answer": "Sinh viên không được tự nhận mình phát ngôn thay VinUni, một đơn vị, câu lạc bộ hoặc tổ chức sinh viên mà không có sự ủy quyền. Khi phát biểu ý kiến cá nhân, sinh viên nên xác định rõ đó là quan điểm cá nhân của mình [Document 3].",
+      "source_ids": [
+        "news/article_03.md::chunk-4",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-1",
+        "legal/vinuni_student_social_media_guidelines_2026.md::chunk-6",
+        "legal/vinuni_student_social_media_guidelines_2026.md::chunk-1",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-4"
+      ],
+      "retrieval_latency_seconds": 0.5591813999926671,
+      "generation_latency_seconds": 6.1451039999956265,
+      "metrics": {
+        "faithfulness": 0.7255874101201343,
+        "answer_relevance": 0.7255278973646779,
+        "context_recall": 1.0,
+        "context_precision": 1.0
+      }
+    },
+    {
+      "case_index": 8,
+      "configuration": "dense",
+      "question": "Week of Welcome 2026 diễn ra khi nào?",
+      "expected_answer": "Từ ngày 11 đến ngày 20 tháng 9 năm 2026.",
+      "answer": "Week of Welcome 2026 diễn ra từ ngày 11 đến ngày 20 tháng 9 năm 2026 [Document 1].",
+      "source_ids": [
+        "news/article_01.md::chunk-0",
+        "news/article_01.md::chunk-4",
+        "news/article_05.md::chunk-0",
+        "news/article_05.md::chunk-1",
+        "news/article_02.md::chunk-0"
+      ],
+      "retrieval_latency_seconds": 0.5757083000207786,
+      "generation_latency_seconds": 5.921367400005693,
+      "metrics": {
+        "faithfulness": 0.7845173467793677,
+        "answer_relevance": 0.8433480345748656,
+        "context_recall": 1.0,
+        "context_precision": 1.0
+      }
+    },
+    {
+      "case_index": 8,
+      "configuration": "hybrid",
+      "question": "Week of Welcome 2026 diễn ra khi nào?",
+      "expected_answer": "Từ ngày 11 đến ngày 20 tháng 9 năm 2026.",
+      "answer": "Week of Welcome 2026 diễn ra từ ngày 11 đến 20 tháng 9 năm 2026 [Document 1].",
+      "source_ids": [
+        "news/article_01.md::chunk-0",
+        "news/article_05.md::chunk-0",
+        "news/article_02.md::chunk-1",
+        "news/article_05.md::chunk-1",
+        "news/article_02.md::chunk-0"
+      ],
+      "retrieval_latency_seconds": 0.5785344000323676,
+      "generation_latency_seconds": 3.8205980000202544,
+      "metrics": {
+        "faithfulness": 0.7735957127411099,
+        "answer_relevance": 0.837712479710798,
+        "context_recall": 1.0,
+        "context_precision": 1.0
+      }
+    },
+    {
+      "case_index": 9,
+      "configuration": "dense",
+      "question": "Week of Welcome giúp sinh viên mới tìm hiểu những nội dung gì?",
+      "expected_answer": "Văn hóa trường, nguồn lực, dịch vụ sinh viên, hỗ trợ học tập, an toàn và đời sống trong trường.",
+      "answer": "Week of Welcome giúp sinh viên mới tìm hiểu về văn hóa đại học, các nguồn lực, dịch vụ sinh viên, hỗ trợ học tập, an toàn và đời sống trong khuôn viên trường [Document 1].",
+      "source_ids": [
+        "news/article_01.md::chunk-0",
+        "news/article_02.md::chunk-4",
+        "news/article_02.md::chunk-0",
+        "news/article_01.md::chunk-3",
+        "news/article_01.md::chunk-1"
+      ],
+      "retrieval_latency_seconds": 0.61292919999687,
+      "generation_latency_seconds": 2.9756011000135913,
+      "metrics": {
+        "faithfulness": 0.7913134411908858,
+        "answer_relevance": 0.8117927122527608,
+        "context_recall": 0.9333333333333333,
+        "context_precision": 0.6
+      }
+    },
+    {
+      "case_index": 9,
+      "configuration": "hybrid",
+      "question": "Week of Welcome giúp sinh viên mới tìm hiểu những nội dung gì?",
+      "expected_answer": "Văn hóa trường, nguồn lực, dịch vụ sinh viên, hỗ trợ học tập, an toàn và đời sống trong trường.",
+      "answer": "Week of Welcome giúp sinh viên mới tìm hiểu về văn hóa đại học, các nguồn lực, dịch vụ sinh viên, hỗ trợ học tập, an toàn và đời sống trong khuôn viên trường [Document 1].",
+      "source_ids": [
+        "news/article_01.md::chunk-0",
+        "news/article_01.md::chunk-1",
+        "news/article_02.md::chunk-4",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-1",
+        "news/article_02.md::chunk-0"
+      ],
+      "retrieval_latency_seconds": 0.6155106999794953,
+      "generation_latency_seconds": 3.472887099982472,
+      "metrics": {
+        "faithfulness": 0.7695121119918116,
+        "answer_relevance": 0.8117927122527608,
+        "context_recall": 0.9333333333333333,
+        "context_precision": 0.4
+      }
+    },
+    {
+      "case_index": 10,
+      "configuration": "dense",
+      "question": "Từ học kỳ nào VinUni dùng cổng VinUniDigi để đăng ký môn?",
+      "expected_answer": "Từ học kỳ Summer 2026.",
+      "answer": "VinUni bắt đầu sử dụng cổng VinUniDigi để đăng ký môn từ học kỳ Hè 2026 [Document 1].",
+      "source_ids": [
+        "news/article_02.md::chunk-1",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-1",
+        "news/article_04.md::chunk-0",
+        "news/article_03.md::chunk-3",
+        "news/article_02.md::chunk-0"
+      ],
+      "retrieval_latency_seconds": 0.5724990000016987,
+      "generation_latency_seconds": 2.4817195999785326,
+      "metrics": {
+        "faithfulness": 0.8153290198062086,
+        "answer_relevance": 0.7760641875174356,
+        "context_recall": 1.0,
+        "context_precision": 0.4
+      }
+    },
+    {
+      "case_index": 10,
+      "configuration": "hybrid",
+      "question": "Từ học kỳ nào VinUni dùng cổng VinUniDigi để đăng ký môn?",
+      "expected_answer": "Từ học kỳ Summer 2026.",
+      "answer": "VinUni bắt đầu sử dụng cổng VinUniDigi để đăng ký môn từ học kỳ Summer 2026 [Document 1].",
+      "source_ids": [
+        "news/article_02.md::chunk-1",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-1",
+        "news/article_03.md::chunk-0",
+        "news/article_03.md::chunk-4",
+        "news/article_03.md::chunk-3"
+      ],
+      "retrieval_latency_seconds": 0.5751668000011705,
+      "generation_latency_seconds": 3.0638307000044733,
+      "metrics": {
+        "faithfulness": 0.814977990466252,
+        "answer_relevance": 0.7966272666282197,
+        "context_recall": 1.0,
+        "context_precision": 0.4
+      }
+    },
+    {
+      "case_index": 11,
+      "configuration": "dense",
+      "question": "Cổng VinUniDigi hỗ trợ sinh viên làm gì với môn học?",
+      "expected_answer": "Tìm kiếm, đăng ký, xem lại và quản lý môn học.",
+      "answer": "Cổng VinUniDigi hỗ trợ sinh viên tìm kiếm, đăng ký, xem xét và quản lý các môn học trong một nơi duy nhất [Document 1].",
+      "source_ids": [
+        "news/article_02.md::chunk-1",
+        "news/article_03.md::chunk-4",
+        "news/article_03.md::chunk-0",
+        "news/article_03.md::chunk-3",
+        "news/article_04.md::chunk-0"
+      ],
+      "retrieval_latency_seconds": 0.4436930000083521,
+      "generation_latency_seconds": 2.8970174999849405,
+      "metrics": {
+        "faithfulness": 0.7952865675273725,
+        "answer_relevance": 0.7845183068549438,
+        "context_recall": 0.9,
+        "context_precision": 0.2
+      }
+    },
+    {
+      "case_index": 11,
+      "configuration": "hybrid",
+      "question": "Cổng VinUniDigi hỗ trợ sinh viên làm gì với môn học?",
+      "expected_answer": "Tìm kiếm, đăng ký, xem lại và quản lý môn học.",
+      "answer": "Cổng VinUniDigi hỗ trợ sinh viên tìm kiếm, đăng ký, xem xét và quản lý các môn học tại một nơi [Document 1].",
+      "source_ids": [
+        "news/article_02.md::chunk-1",
+        "news/article_03.md::chunk-4",
+        "news/article_03.md::chunk-0",
+        "news/article_03.md::chunk-3",
+        "news/article_04.md::chunk-0"
+      ],
+      "retrieval_latency_seconds": 0.44641060000867583,
+      "generation_latency_seconds": 2.850559599988628,
+      "metrics": {
+        "faithfulness": 0.799657926911776,
+        "answer_relevance": 0.7843726625985663,
+        "context_recall": 0.9,
+        "context_precision": 0.2
+      }
+    },
+    {
+      "case_index": 12,
+      "configuration": "dense",
+      "question": "Future Leader Grant có giá trị bao nhiêu?",
+      "expected_answer": "10% học phí cho sinh viên đủ điều kiện.",
+      "answer": "Future Leader Grant có giá trị 10% học phí cho sinh viên đủ điều kiện [Document 1].",
+      "source_ids": [
+        "news/article_04.md::chunk-2",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-5",
+        "news/article_04.md::chunk-0",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-2",
+        "news/article_04.md::chunk-3"
+      ],
+      "retrieval_latency_seconds": 0.8042703000246547,
+      "generation_latency_seconds": 1.7533770999871194,
+      "metrics": {
+        "faithfulness": 0.7704378442312683,
+        "answer_relevance": 0.8328265099805523,
+        "context_recall": 1.0,
+        "context_precision": 1.0
+      }
+    },
+    {
+      "case_index": 12,
+      "configuration": "hybrid",
+      "question": "Future Leader Grant có giá trị bao nhiêu?",
+      "expected_answer": "10% học phí cho sinh viên đủ điều kiện.",
+      "answer": "Future Leader Grant có giá trị 10% học phí cho sinh viên đủ điều kiện [Document 1].",
+      "source_ids": [
+        "news/article_04.md::chunk-2",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-5",
+        "news/article_04.md::chunk-0",
+        "legal/vinuni_student_event_representation_guidelines_2026.md::chunk-2",
+        "news/article_04.md::chunk-3"
+      ],
+      "retrieval_latency_seconds": 0.807092500035651,
+      "generation_latency_seconds": 1.746844700013753,
+      "metrics": {
+        "faithfulness": 0.7704378442312683,
+        "answer_relevance": 0.8328265099805523,
+        "context_recall": 1.0,
+        "context_precision": 1.0
+      }
+    },
+    {
+      "case_index": 13,
+      "configuration": "dense",
+      "question": "Danh mục câu lạc bộ VinUni có những nhóm hoạt động nào?",
+      "expected_answer": "Thể thao, học thuật, phục vụ cộng đồng, nghệ thuật và văn hóa, cùng các hội sinh viên.",
+      "answer": "Danh mục câu lạc bộ VinUni bao gồm các nhóm hoạt động sau:\n\n1. **Thể thao**: \n   - VinUni Golf Club (VUGC)\n   - VinUni Ultimate Club (VUC)\n   - VinUni Swimming Club (DiveVin)\n   - VinUni Kendo Club\n   - VinUni Volleyball Club (SPIKE)\n   - VinUni Tennis Club\n   - VinUni Gaming Society (VGS)\n   - VinUni Football Team\n   - VinUni Badminton Club\n   - VinUni Basketball Team (VUBT) [Document 1].\n\n2. **Học thuật và chuyên môn**: \n   - VinUniversity Debating Club\n   - VinTelligence for Data Science and AI\n   - Youth Hospitality Association\n   - Vinnovation\n   - VinUni Research Club\n   - Vin Pioneers\n   - GDSC VinUni\n   - VinUni Finance Society\n   - VinUni Business Insider\n   - VinUni Algorithm Club [Document 2].\n\n3. **Nghệ thuật và cộng đồng**: \n   - Ecoquity\n   - Vinista\n   - VinViVid\n   - VinUni Harmony\n   - Vin-A-House Dance Crew\n   - VinUni Classical Music Club\n   - Student Council\n   - Ho Chi Minh Communist Youth Union branch [Document 5].",
+      "source_ids": [
+        "news/article_03.md::chunk-2",
+        "news/article_03.md::chunk-3",
+        "news/article_03.md::chunk-0",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-0",
+        "news/article_03.md::chunk-4"
+      ],
+      "retrieval_latency_seconds": 0.6570098999945913,
+      "generation_latency_seconds": 3.948876999987988,
+      "metrics": {
+        "faithfulness": 0.8819814564843551,
+        "answer_relevance": 0.8006130167282322,
+        "context_recall": 0.7692307692307693,
+        "context_precision": 0.6
+      }
+    },
+    {
+      "case_index": 13,
+      "configuration": "hybrid",
+      "question": "Danh mục câu lạc bộ VinUni có những nhóm hoạt động nào?",
+      "expected_answer": "Thể thao, học thuật, phục vụ cộng đồng, nghệ thuật và văn hóa, cùng các hội sinh viên.",
+      "answer": "Danh mục câu lạc bộ VinUni bao gồm các nhóm hoạt động sau:\n\n1. **Thể thao**: \n   - VinUni Golf Club (VUGC)\n   - VinUni Ultimate Club (VUC)\n   - VinUni Swimming Club (DiveVin)\n   - VinUni Kendo Club\n   - VinUni Volleyball Club (SPIKE)\n   - VinUni Tennis Club\n   - VinUni Gaming Society (VGS)\n   - VinUni Football Team\n   - VinUni Badminton Club\n   - VinUni Basketball Team (VUBT) [Document 1].\n\n2. **Nghệ thuật và cộng đồng**: \n   - Ecoquity\n   - Vinista\n   - VinViVid\n   - VinUni Harmony\n   - Vin-A-House Dance Crew\n   - VinUni Classical Music Club\n   - Student Council\n   - Ho Chi Minh Communist Youth Union branch [Document 4].\n\n3. **Lĩnh vực học thuật và chuyên môn**: \n   - VinUniversity Debating Club\n   - VinTelligence for Data Science and AI\n   - Youth Hospitality Association\n   - Vinnovation\n   - VinUni Research Club\n   - Vin Pioneers\n   - GDSC VinUni\n   - VinUni Finance Society\n   - VinUni Business Insider\n   - VinUni Algorithm Club [Document 5].",
+      "source_ids": [
+        "news/article_03.md::chunk-2",
+        "legal/vinuni_student_club_operations_guidelines_2026.md::chunk-0",
+        "news/article_05.md::chunk-0",
+        "news/article_03.md::chunk-4",
+        "news/article_03.md::chunk-3"
+      ],
+      "retrieval_latency_seconds": 0.6598072999913711,
+      "generation_latency_seconds": 4.01575680001406,
+      "metrics": {
+        "faithfulness": 0.8835026314883792,
+        "answer_relevance": 0.7975651516133981,
+        "context_recall": 0.6923076923076923,
+        "context_precision": 0.4
+      }
+    },
+    {
+      "case_index": 14,
+      "configuration": "dense",
+      "question": "Research Day & Bootcamp 2026 diễn ra lúc nào và ở đâu?",
+      "expected_answer": "Ngày 6 tháng 6 năm 2026, từ 8:30 đến 18:00 tại khuôn viên VinUniversity.",
+      "answer": "Research Day & Bootcamp 2026 diễn ra vào ngày 6 tháng 6 năm 2026, từ 8:30 AM đến 6:00 PM tại khuôn viên của VinUniversity [Document 1].",
+      "source_ids": [
+        "news/article_05.md::chunk-1",
+        "news/article_05.md::chunk-4",
+        "news/article_01.md::chunk-0",
+        "news/article_01.md::chunk-4",
+        "news/article_05.md::chunk-0"
+      ],
+      "retrieval_latency_seconds": 0.9137383000052068,
+      "generation_latency_seconds": 1.529671700001927,
+      "metrics": {
+        "faithfulness": 0.8393693937915723,
+        "answer_relevance": 0.8655420103802659,
+        "context_recall": 1.0,
+        "context_precision": 0.8
+      }
+    },
+    {
+      "case_index": 14,
+      "configuration": "hybrid",
+      "question": "Research Day & Bootcamp 2026 diễn ra lúc nào và ở đâu?",
+      "expected_answer": "Ngày 6 tháng 6 năm 2026, từ 8:30 đến 18:00 tại khuôn viên VinUniversity.",
+      "answer": "Research Day & Bootcamp 2026 diễn ra vào ngày 6 tháng 6 năm 2026, từ 8:30 AM đến 6:00 PM tại khuôn viên của VinUniversity [Document 1].",
+      "source_ids": [
+        "news/article_05.md::chunk-1",
+        "news/article_05.md::chunk-4",
+        "news/article_01.md::chunk-0",
+        "news/article_05.md::chunk-2",
+        "news/article_05.md::chunk-0"
+      ],
+      "retrieval_latency_seconds": 0.9166923000302631,
+      "generation_latency_seconds": 1.7599017999891657,
+      "metrics": {
+        "faithfulness": 0.8414883985835981,
+        "answer_relevance": 0.8655281096036037,
+        "context_recall": 1.0,
+        "context_precision": 0.8
+      }
+    }
+  ]
+}
