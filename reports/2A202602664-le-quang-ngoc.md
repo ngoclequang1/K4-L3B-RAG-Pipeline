@@ -35,8 +35,8 @@
 
 ## Điều còn hạn chế
 
-- Một hạn chế cụ thể của phần tôi làm: evaluation mới chạy một lần trên 15 câu và có 2 safe refusals cho cùng một câu hỏi tiếng Việt.
-- Nếu có thêm thời gian, thay đổi đầu tiên tôi sẽ thực hiện: hiệu chỉnh `top_k` và threshold bằng tập câu hỏi in-domain/out-of-domain lớn hơn.
+- Một hạn chế cụ thể của phần tôi làm: evaluation đã dùng API thật nhưng faithfulness/relevance là embedding-similarity proxy, chưa phải native RAGAS/LLM-judge; mới chạy một lần trên 15 câu và có 2 safe refusals cho cùng một câu hỏi tiếng Việt.
+- 
 
 ## Xác nhận đóng góp
 
