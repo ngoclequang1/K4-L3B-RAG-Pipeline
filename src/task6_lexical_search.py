@@ -35,8 +35,6 @@ def lexical_search(query: str, top_k: int = 10) -> list[dict]:
         return []
     query_tokens = _tokenize(query)
     scores = build_bm25_index(corpus).get_scores(query_tokens)
-    # BM25Okapi has zero IDF when a term occurs in exactly half of a tiny
-    # corpus. Add a small exact-token component so such matches remain usable.
     query_set = set(query_tokens)
     adjusted_scores = [
         float(score) + len(query_set & set(_tokenize(item["content"]))) / max(len(query_set), 1)

@@ -1,15 +1,4 @@
-"""
-Task 9 — Retrieval pipeline hoàn chỉnh.
-
-Luồng xử lý:
-    1. Chạy semantic_search và lexical_search.
-    2. Fuse hai danh sách bằng RRF đúng một lần.
-    3. Lấy best cosine score gốc từ dense results.
-    4. Nếu score dưới threshold, thử PageIndex fallback.
-    5. Nếu fallback lỗi, trả hybrid results thay vì crash.
-
-Không so sánh threshold với RRF score vì hai thang đo khác nhau.
-"""
+"""Task 9 - hybrid retrieval with dense-score-based fallback."""
 
 from .task5_semantic_search import semantic_search
 from .task6_lexical_search import lexical_search
@@ -27,7 +16,7 @@ def retrieve(
     score_threshold: float = SCORE_THRESHOLD,
     use_reranking: bool = True,
 ) -> list[dict]:
-    """Trả về hybrid hoặc pageindex SearchResult."""
+    """Return hybrid results or vectorless fallback results."""
     if not query.strip() or top_k <= 0:
         return []
     candidate_k = max(top_k * 2, top_k)
@@ -50,5 +39,5 @@ def retrieve(
 
 
 if __name__ == "__main__":
-    for result in retrieve("test query", top_k=3):
-        print(result)
+    for result in retrieve("student club", top_k=3):
+        print(result["retrieval_method"], result["score"], result["metadata"]["source"])

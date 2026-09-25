@@ -71,9 +71,8 @@ def call_llm(system_prompt: str, user_message: str) -> str:
     if LLM_PROVIDER == "openai":
         from openai import OpenAI
 
-        model = LLM_MODEL or "gpt-4o-mini"
         response = OpenAI().responses.create(
-            model=model,
+            model=LLM_MODEL or "gpt-4o-mini",
             instructions=system_prompt,
             input=user_message,
             temperature=TEMPERATURE,
@@ -84,9 +83,8 @@ def call_llm(system_prompt: str, user_message: str) -> str:
         from google import genai
         from google.genai import types
 
-        model = LLM_MODEL or "gemini-2.5-flash"
         response = genai.Client().models.generate_content(
-            model=model,
+            model=LLM_MODEL or "gemini-2.5-flash",
             contents=user_message,
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt,
@@ -98,9 +96,8 @@ def call_llm(system_prompt: str, user_message: str) -> str:
     if LLM_PROVIDER == "anthropic":
         from anthropic import Anthropic
 
-        model = LLM_MODEL or "claude-3-5-haiku-latest"
         response = Anthropic().messages.create(
-            model=model,
+            model=LLM_MODEL or "claude-3-5-haiku-latest",
             system=system_prompt,
             messages=[{"role": "user", "content": user_message}],
             max_tokens=1000,
@@ -127,7 +124,6 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
         answer = SAFE_REFUSAL
     if not answer.strip():
         answer = SAFE_REFUSAL
-    # Drop hallucinated numeric citations that do not map to returned sources.
     for citation in re.findall(r"\[Document (\d+)\]", answer):
         if int(citation) > len(sources):
             answer = SAFE_REFUSAL

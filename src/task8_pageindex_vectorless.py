@@ -1,9 +1,4 @@
-"""Task 8 - resilient vectorless fallback.
-
-When PAGEINDEX_API_KEY is not configured, this module performs a local
-document-level keyword traversal over the standardized corpus.  It preserves
-the PageIndex SearchResult contract and keeps the application usable offline.
-"""
+"""Task 8 - resilient local vectorless fallback."""
 
 import hashlib
 import json
@@ -18,7 +13,7 @@ CACHE_PATH = ROOT / "pageindex_doc_ids.json"
 
 
 def upload_documents() -> None:
-    """Cache stable source IDs; external upload can be added without changing search."""
+    """Cache stable source IDs so documents are not prepared repeatedly."""
     mapping = {
         document["metadata"]["source"]: hashlib.sha256(document["id"].encode()).hexdigest()[:16]
         for document in load_documents()
@@ -39,10 +34,8 @@ def pageindex_search(query: str, top_k: int = 5) -> list[dict]:
     candidates: list[tuple[float, dict]] = []
     for chunk in chunk_documents(load_documents()):
         metadata = chunk["metadata"]
-        title_tokens = _tokens(metadata["title"])
-        content_tokens = _tokens(chunk["content"])
-        title_overlap = len(query_tokens & title_tokens)
-        content_overlap = len(query_tokens & content_tokens)
+        title_overlap = len(query_tokens & _tokens(metadata["title"]))
+        content_overlap = len(query_tokens & _tokens(chunk["content"]))
         score = (2.0 * title_overlap + content_overlap) / max(len(query_tokens), 1)
         if score > 0:
             candidates.append((score, chunk))
